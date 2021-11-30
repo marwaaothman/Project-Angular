@@ -1,0 +1,184 @@
+ <div class="card card-header text-white bg-success">
+
+  <h6>
+    Liste des Batiments
+  </h6>
+</div>
+<table class="table table-bordered">
+
+  <thead>
+
+    <tr class="table-active">
+      <th scope="col">Adresse</th>
+      <th scope="col">Ville</th>
+      <th scope="col">code postal</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let p of batiments ">
+      <td>{{p.address}}</td>
+      <td>{{p.city}}</td>
+      <td>{{p.postalCode}}</td>
+      <td><button (click)="addBatiment()" class="btn btn-success">Ajouter</button></td>
+
+
+
+
+      <td><button (click)="updateBatiment(p.id)" class="btn btn-primary">Modifier</button></td>
+      <td><button (click)="delete(p.id)" class="btn btn-danger">Supprimer</button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+  <!-- /.col -->
+<!--
+
+  <div class="wrapper">
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+  <div class="col-md-12">
+    <div class="card">
+
+      <div class="card-header">
+
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fas fa-plus"></i>Add batiments
+</button>
+
+/* Modal*/
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add batiment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adresse</label>
+              <input type="text" class="form-control" name="title" [(ngModel)]= "batiment.address" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Ville</label>
+              <input type="text" class="form-control" name="budget" [(ngModel)]= "batiment.city" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Code postal</label>
+              <input type="date" class="form-control" name="Start_Date" [(ngModel)]= "batiment.postalCode" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nom du client</label>
+              <input type="date" class="form-control" name="Start_Date" [(ngModel)]= "batiment.Client.name" placeholder="">
+            </div>
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="addBatiment()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="card-tools">
+          <ul class="pagination pagination-sm float-right">
+            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+          </ul>
+        </div>
+      </div>
+  /* /.card-header */
+      <div class="card-body p-0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Ville</th>
+              <th>Code postal</th>
+              <th>Nom du client</th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor= "let batiment of batiments" >
+            <tr>
+              <td>{{batiment.adress}}</td>
+              <td>{{batiment.city}}</td>
+              <td>{{batiment.postalCode}}</td>
+              <td>{{batiment.name.client}}</td>
+
+
+
+              <td><button  class="btn btn-success" type="submit"><i class="far fa-eye"></i></button></td>
+              <td><button (click)=" delete(batiment._id)" class="btn btn-danger" type="submit"><i class="far fa-trash-alt"></i></button></td>
+
+<td><button type="button" class="btn btn-primary" (click)="consulter()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="far fa-edit"></i>
+</button></td>
+
+/* Modal */
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adresse</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]= "currentBatiment.address" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Ville</label>
+              <input type="text" class="form-control" name="city" [(ngModel)]= "currentBatiment.city" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Code Postal</label>
+              <input type="text" class="form-control" name="postalCode" [(ngModel)]= "currentBatiment.postalCode" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nom du client</label>
+              <input type="text" class="form-control" name="nomClient" [(ngModel)]= "currentBatiment.Client.name" placeholder="">
+            </div>
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="updateBatiment()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+-->
+

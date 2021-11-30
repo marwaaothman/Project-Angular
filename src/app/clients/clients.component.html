@@ -1,0 +1,30 @@
+<div class="card card-header text-white bg-success">
+
+  <h6>
+    Liste des Clients
+  </h6>
+</div>
+<table class="table table-bordered">
+
+  <thead>
+
+    <tr class="table-active">
+      <th scope="col">ID</th>
+      <th scope="col">Raison social</th>
+      <th scope="col">Numéro de téléphone</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let p of clients ">
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.name}}</td>
+      <td>{{p.phoneNumber}}</td>
+      <td>{{p.email}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+
