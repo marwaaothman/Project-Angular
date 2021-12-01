@@ -12,27 +12,69 @@
       <th scope="col">Adresse</th>
       <th scope="col">Ville</th>
       <th scope="col">code postal</th>
-      <th scope="col"></th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
 
     <tr *ngFor="let p of batiments ">
+
       <td>{{p.address}}</td>
       <td>{{p.city}}</td>
       <td>{{p.postalCode}}</td>
-      <td><button (click)="addBatiment()" class="btn btn-success">Ajouter</button></td>
 
 
+      <td><button (click)="updateBatiment(p.id)" class="btn btn-primary p-2 " >Modifier</button>
+        <button  (click)="delete(p.batimentId)" class="btn btn-danger">Supprimer</button>
 
 
-      <td><button (click)="updateBatiment(p.id)" class="btn btn-primary">Modifier</button></td>
-      <td><button (click)="delete(p.id)" class="btn btn-danger">Supprimer</button></td>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fas fa-plus"></i>Add batiments
+      </button></td>
     </tr>
 
   </tbody>
 </table>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add batiment</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form >
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Adresse</label>
+                    <input type="text" class="form-control" name="address" [(ngModel)]= "batiment.address" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Ville</label>
+                    <input type="text" class="form-control" name="city" [(ngModel)]= "batiment.city" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Code postal</label>
+                    <input type="date" class="form-control" name="postalCode" [(ngModel)]= "batiment.postalCode" placeholder="">
+                  </div>
+                  <!--<div class="form-group">
+                    <label for="exampleInputEmail1">Nom du client</label>
+                    <input type="date" class="form-control" name="client" [(ngModel)]= "batiment.Client.name" placeholder="">
+                  </div>-->
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" (click)="addBatiment()">Ajouter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
 
 

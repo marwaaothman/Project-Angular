@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./batiments.component.css']
 })
 export class BatimentsComponent implements OnInit {
-batiments:Batiment[];
+batiments: Batiment[];
 currentBatiment = new Batiment();
 batiment =new  Batiment();
 formValue !:FormGroup;
@@ -43,7 +43,7 @@ formValue !:FormGroup;
 
   )}
   addBatiment(){
-    this.batiment.address=this.formValue.value.address;
+  this.batiment.address=this.formValue.value.address;
   this.batiment.city=this.formValue.value.city;
   this.batiment.postalCode=this.formValue.value.postalCode;
   this.batiment.Client=this.formValue.value.Client;
@@ -73,7 +73,7 @@ formValue !:FormGroup;
     }
 
     onEdit(batiment:any){
-      this.currentBatiment._id=batiment.id;
+      this.currentBatiment.batimentId=batiment.batimentId;
       this.formValue.controls['address'].setValue(batiment.address);
       this.formValue.controls['city'].setValue(batiment.city);
       this.formValue.controls['postalCode'].setValue(batiment.postalCode);

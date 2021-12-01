@@ -2,7 +2,7 @@ import { Client } from "./client";
 
 export class Batiment {
 
-  _id: Number ;
+  batimentId: Number ;
   address:  String ;
   city: String ;
   postalCode:  String ;
