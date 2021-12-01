@@ -31,6 +31,9 @@ export class GestionService {
   getClientById(id:number): Observable<Client[]> {
         return this.http.get<Client[]>('http://localhost:5000/api/clients'+id);
         }
+  getBatimentByClient(id:number): Observable<Batiment[]> {
+        return this.http.get<Batiment[]>('http://localhost:5000/api/batiments/search'+id);
+          }
 
       addBatiment( bat:Batiment ):Observable<Batiment>{
         return this.http.post<Batiment>(this.apiURL,bat,HttpOptions);

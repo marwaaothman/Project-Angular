@@ -14,6 +14,8 @@ export class ClientsComponent implements OnInit {
   constructor(private ser : GestionService, private route:Router)  { }
 
   ngOnInit(): void {
+
+
     this.ser.getClients().subscribe(data=>
       {
         console.log(data) ;

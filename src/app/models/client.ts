@@ -1,6 +1,6 @@
 export class Client {
 
-  _id: Number ;
+  clientId: Number ;
   name:  String ;
   phoneNumber: Number ;
   email:  String ;

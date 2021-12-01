@@ -7,6 +7,6 @@ export class Batiment {
   city: String ;
   postalCode:  String ;
   clientId : Number ;
-  Client:  Client;
+  client:  Client;
 }
 
